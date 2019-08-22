@@ -8,7 +8,7 @@ What technologies do I plan to use? (React, Spring Boot, PostgreSQL, Socket.io, 
 
 User Stories:
 	Login Page:
-As a user, I see an option to enter my username and password when I am directed to the login page.
+As a user, I see an option to enter my username and password when I am directed to the login page./n
 As a user, I see an option to sign up if I do not already have an account and I am redirected to a signup page when selected.
 As a user, if I enter the correct username and password, I am redirected to the dashboard page.
 As a user, if I enter an incorrect username or password, I receive feedback from the page and I am not redirected.
@@ -34,3 +34,5 @@ As a user, if I have already matched with this other user, I have the option to 
 STRETCH: As a user, if I have already matched with this other user, and they are also online, I can start a live chat with that user.
 	Matches View:
 As a user, I see a list of all matches that are selectable.  If I select a match, I am redirected to a profile view of that user.
+
+<img src="DB.jpg"/>
