@@ -65,3 +65,7 @@ As a user, I see a list of all matches that are selectable.  If I select a match
 Database Organization:
 
 <img src="Screen Shot 2019-08-22 at 2.10.47 PM.png"/>
+
+Component Tree:
+
+<img src="Screen Shot 2019-08-26 at 10.30.45 AM.png"/>
