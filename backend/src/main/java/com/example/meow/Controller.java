@@ -43,4 +43,19 @@ public class Controller {
         this.usersRepository.deleteById(id);
     }
 
+    @GetMapping("/matches")
+    public Iterable<Matches> allMatches () {
+        return this.matchesRepository.findAll();
+    }
+
+    @PostMapping("/match")
+    public Matches matchmaker (@RequestBody Matches match) {
+        return this.matchesRepository.save(match);
+    }
+
+    @PostMapping("/thanksbutnothanks")
+    public void deleteMatch (@RequestBody long id) {
+        this.matchesRepository.deleteById(id);
+    }
+
 }
