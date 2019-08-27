@@ -2,7 +2,7 @@
 Dating App for Sophisticated Cats looking for a LTR
 
 To start:
-cd into ./backend and run ".mvnw spring-boot:run"
+cd into ./backend and run "./mvnw spring-boot:run"
 then,
 cd into ./meowage/meowage and run "npm start"
 
