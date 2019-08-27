@@ -1,6 +1,11 @@
 # meowage
 Dating App for Sophisticated Cats looking for a LTR
 
+To start:
+cd into ./backend and run ".mvnw spring-boot:run"
+then,
+cd into ./meowage/meowage and run "npm start"
+
 
 App Description:  Check out the new dating alternative for cats looking for something serious, Meowage!  Move over cat hookup apps, the sophisticated, mature cat of tomorrow is looking to settle down, make a commitment, and have kittens.  Meowage brings together like-minded cats and asks them to be open and vulnerable in their profiles to find a match based on more than just looks!  Meowage:  You’ve only got 9 lives… make them count!
 
