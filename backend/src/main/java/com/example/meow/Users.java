@@ -16,6 +16,14 @@ public class Users {
             inverseJoinColumns = @JoinColumn(name= "usertwoid"))
     Set<Users> matches;
 
+    public Set<Users> getMatches() {
+        return matches;
+    }
+
+    public void setMatches(Set<Users> matches) {
+        this.matches = matches;
+    }
+
     @Column(name= "email")
     private String email;
 
