@@ -1,6 +1,7 @@
 package com.example.meow;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name= "users")
@@ -9,6 +10,11 @@ public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @ManyToMany
+            @JoinTable(name= "Matches", joinColumns = @JoinColumn(name = "useroneid"),
+            inverseJoinColumns = @JoinColumn(name= "usertwoid"))
+    Set<Users> matches;
 
     @Column(name= "email")
     private String email;
