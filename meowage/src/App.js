@@ -1,31 +1,27 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { createBrowserHistory } from "history";
+import Login from "./Login.js";
+import Dashboard from "./Dashboard.js";
+import Matches from "./Matches.js";
+import Create from "./Create.js";
+import Edit from "./Edit.js";
+import Profile from "./Profile.js";
 
 function App() {
+  const BrowserHistory = createBrowserHistory();
   return (
-    <div className="App">
-      <header className="App-header">
-      </header>
-      <img class="pic" src="jRFox.jpg"/>
-      <div class="placemat">
-      <div class="card">
-      <form>
-      <h3>Meowage: You've only got 9 lives...make them count!</h3>
-
-      <label>Email Address</label>
-      <br></br>
-      <input type="email" name="email"></input>
-      <br></br>
-      <label>Password</label>
-      <br></br>
-      <input type="password" name="password"></input>
-      <br></br>
-      <button type="submit" name="submit">Sign In</button>
-      </form>
-      <button>I need to make an account</button>
-      </div>
-      </div>
-    </div>
+    <Router history={BrowserHistory}>
+    <Switch>
+    <Route exact path="/" component={Login} />
+    <Route path="/dashboard" component={Dashboard} />
+    <Route path="/matches" component={Matches} />
+    <Route path="/create" component={Create} />
+    <Route path="/edit" component={Edit} />
+    <Route path="/profile" component={Profile} />
+    </Switch>
+    </Router>
   );
 }
 

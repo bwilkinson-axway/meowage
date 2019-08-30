@@ -1,0 +1,32 @@
+html,
+body {
+  background-color: gray;
+}
+.profile {
+  display: flex;
+  flex-direction: row;
+  background-color: lightgray;
+}
+
+#pic {
+  width: 40vw;
+  padding: 3vw;
+  margin: 3vw;
+}
+
+#logo {
+  width: 12vw;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#matches {
+  width: 7vw;
+}
+
+button {
+  width: 9vw;
+}

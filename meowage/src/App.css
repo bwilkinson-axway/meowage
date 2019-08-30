@@ -12,6 +12,7 @@ body {
   left: 0;
   top: 0;
   width: 100vw;
+  filter: grayscale(100%);
 }
 
 .card {
@@ -29,9 +30,23 @@ form {
 .placemat {
   position: relative;
   background-color: lightgray;
-  width: 50vw;
-  height: 50vh;
+  width: 90vw;
+  height: 90vh;
   z-index: 1;
-  opacity: .9;
+  opacity: .7;
+  border-radius: 20px;
+  padding: 50px;
+  margin-top: 2em;
+}
+button {
+  margin-top: 5px;
+  padding: 5px;
   border-radius: 5px;
+  color: white;
+  background-color: #5b7cb0;
+}
+
+p {
+  margin-block-start: 3px;
+  margin-block-end: 3px;
 }
