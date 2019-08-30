@@ -33,6 +33,7 @@ function Edit() {
       <br></br>
       <button type="submit" name="submit">Update!</button>
       </form>
+      <button type="submit" name="submit">Delete My Account Right Meow!</button>
 
       <h3>You've only got 9 lives...make them count!</h3>
       </div>
