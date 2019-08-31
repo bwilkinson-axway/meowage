@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-function Create() {
+function Create({ history }) {
   return (
     <div className="Create">
       <img class="pic" src="jRFox.jpg" alt=""/>
@@ -23,7 +23,7 @@ function Create() {
       <br></br>
       <input type="password" name="password"></input>
       <br></br>
-      <button type="submit" name="submit">Create Your Account!</button>
+      <button onClick={() => history.push('/edit')} type="submit" name="submit">Create Your Account!</button>
       </form>
 
       <h3>You've only got 9 lives...make them count!</h3>

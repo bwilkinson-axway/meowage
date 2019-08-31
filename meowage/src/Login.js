@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-function Login() {
+function Login({ history }) {
   return (
     <div className="Login">
       <header className="App-header">
@@ -21,9 +21,9 @@ function Login() {
       <br></br>
       <input type="password" name="password"></input>
       <br></br>
-      <button type="submit" name="submit">Sign In</button>
+      <button onClick={() => history.push('/dashboard')} type="submit" name="submit">Sign In</button>
       </form>
-      <button>I need to make an account</button>
+      <button onClick={() => history.push('/create')} >I need to make an account</button>
 
       <h3>You've only got 9 lives...make them count!</h3>
       <p>Welcome to the dating site made exclusively for you!</p>

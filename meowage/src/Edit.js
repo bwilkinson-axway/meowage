@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-function Edit() {
+function Edit({ history }) {
   return (
     <div className="Edit">
       <img class="pic" src="jRFox.jpg" alt=""/>
@@ -31,9 +31,9 @@ function Edit() {
       <br></br>
       <textarea type="text" name="bio"></textarea>
       <br></br>
-      <button type="submit" name="submit">Update!</button>
+      <button onClick={() => history.push('/dashboard')} type="submit" name="submit">Update!</button>
       </form>
-      <button type="submit" name="submit">Delete My Account Right Meow!</button>
+      <button onClick={() => history.push('/')} type="submit" name="submit">Delete My Account Right Meow!</button>
 
       <h3>You've only got 9 lives...make them count!</h3>
       </div>
