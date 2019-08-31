@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Matches {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name= "id")
     private long id;
 
     @Column(name= "onematch")
@@ -23,6 +23,18 @@ public class Matches {
 
     public long getId() {
         return id;
+    }
+
+    public Matches() {
+
+    }
+
+    public Matches(long id, boolean onematch, boolean twomatch, long catone, long cattwo) {
+        this.id = id;
+        this.onematch = onematch;
+        this.twomatch = twomatch;
+        this.catone = catone;
+        this.cattwo = cattwo;
     }
 
     public void setId(long id) {
