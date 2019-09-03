@@ -32,11 +32,14 @@ public class Users {
     @Column(name= "photo")
     private String photo;
 
+    @Column(name= "matched")
+    private Boolean matched;
+
     public Users() {
 
     }
 
-    public Users(long id, String email, String username, String password, String favorite_toy, int age, String bio, String photo) {
+    public Users(long id, String email, String username, String password, String favorite_toy, int age, String bio, String photo, Boolean matched) {
         this.id = id;
         this.email = email;
         this.username = username;
@@ -45,6 +48,15 @@ public class Users {
         this.age = age;
         this.bio = bio;
         this.photo = photo;
+        this.matched = matched;
+    }
+
+    public Boolean isMatched() {
+        return matched;
+    }
+
+    public void setMatched(Boolean matched) {
+        this.matched = matched;
     }
 
     public long getId() {
