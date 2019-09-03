@@ -9,20 +9,39 @@ import Create from "./Create.js";
 import Edit from "./Edit.js";
 import Profile from "./Profile.js";
 
-function App() {
-  const BrowserHistory = createBrowserHistory();
-  return (
+class App extends React.Component {
+
+  state = {
+    cats: [],
+    user: ''
+  }
+
+  async componentDidMount() {
+    const response = await fetch('http://localhost:8080/all')
+    const json = await response.json()
+    this.setState({cats: json})
+  }
+
+  setUser = (id) => {
+    this.setState({user: id})
+  }
+
+  render() {
+    const BrowserHistory = createBrowserHistory();
+    console.log(this.state)
+
+    return (
     <Router history={BrowserHistory}>
     <Switch>
-    <Route exact path="/" component={Login} />
-    <Route path="/dashboard" component={Dashboard} />
-    <Route path="/matches" component={Matches} />
-    <Route path="/create" component={Create} />
-    <Route path="/edit" component={Edit} />
-    <Route path="/profile" component={Profile} />
+    <Route exact path="/" render={({ history }) => <Login history={history} setUser={this.setUser} cats={this.state.cats} />} />
+    <Route path="/dashboard" state={this.state} component={Dashboard} />
+    <Route path="/matches" state={this.state} component={Matches} />
+    <Route path="/create" state={this.state} component={Create} />
+    <Route path="/edit" state={this.state} component={Edit} />
+    <Route path="/profile" state={this.state} component={Profile} />
     </Switch>
     </Router>
-  );
+  )};
 }
 
 export default App;
