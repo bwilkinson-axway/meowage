@@ -1,47 +1,24 @@
 import React from 'react';
 import './App.css';
 import './Dashboard.css';
+import CardMatch from './CardMatch.js'
 
-function Matches({ history }) {
-  return (
-    <div class='matches'>
-      <div class='header'>
-      <button onClick={() => history.push('/edit')}>Edit Profile</button>
-      <img id='logo' src='meowage-white.png' alt='logo'></img>
-      <button onClick={() => history.push('/dashboard')}>See All Cats</button>
-      </div>
-      <div class='meowmeows'>
-        <div onClick={() => history.push('/profile')} class='thumb match'>
-          <img class='profpic' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO9zHwQ5zx_7NFGb6iEzHkZlCbbzJX7x_bWAmvt86dKPlbdmD-" alt='cat profile pic'></img>
-          <h5> Samwise Catgi </h5>
+class Matches extends React.Component {
+  render() {
+    return (
+      <div className='matches'>
+        <div className='header'>
+        <button onClick={() => this.props.history.push('/edit')}>Edit Profile</button>
+        <img id='logo' src='meowage-white.png' alt='logo'></img>
+        <button onClick={() => this.props.history.push('/dashboard')}>See All Cats</button>
         </div>
-        <div onClick={() => history.push('/profile')} class='thumb match'>
-          <img class='profpic' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG3MEyjg2RJpF9sxsrHWMpgAQ91LvvM5LCbC59mO-XTcOj2kLf7A" alt='cat profile pic'></img>
-          <h5> Meow Zedong </h5>
-        </div>
-        <div onClick={() => history.push('/profile')} class='thumb match'>
-          <img class='profpic' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp82tQI4xHdtSSlQ1IEWUPv2JeoeOg_PHkCN3akXj1BCTeRJrDqw" alt='cat profile pic'></img>
-          <h5> Randolf </h5>
-        </div>
-        <div onClick={() => history.push('/profile')} class='thumb match'>
-          <img class='profpic' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLxgj_XBkIAyUi1fZWMsvyiCg0EghBC2REgvaZxXrBO1E_1ocV-Q" alt='cat profile pic'></img>
-          <h5> Howard P. Cat </h5>
-        </div>
-        <div onClick={() => history.push('/profile')} class='thumb match'>
-          <img class='profpic' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbK4pLlCWdwlWm0wx9fhZtiOi0huyWvlZXTSFi9RwORMCuMKZn" alt='cat profile pic'></img>
-          <h5> Kate </h5>
-        </div>
-        <div onClick={() => history.push('/profile')} class='thumb match'>
-          <img class='profpic' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcbU53z7u5aOxKtteKOzDM0cUxOjHUJ6BPIM8_LbGELYWRC56baA" alt='cat profile pic'></img>
-          <h5> Rhianna </h5>
-        </div>
-        <div onClick={() => history.push('/profile')} class='thumb match'>
-          <img class='profpic' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv7iP-nzX-3NENlXvC5EeiVGBNSln3t76jPAGnqdUxNnjMrYsI" alt='cat profile pic'></img>
-          <h5> Pookie </h5>
+        <div className='meowmeows'>
+        {this.props.state.cats.map(cat => {return Object.values(this.props.state.meow).includes(cat.id) ? <CardMatch key={cat.id} cat={cat} history={this.props.history} /> : null })}
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+
 }
 
 export default Matches;
