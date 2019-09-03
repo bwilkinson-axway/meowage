@@ -15,13 +15,19 @@ class App extends React.Component {
     cats: [],
     user: '',
     matches: [],
-    meow: []
+    meow: [],
+    newemail: '',
+    newpassword: ''
   }
 
   async componentDidMount() {
     const response = await fetch('http://localhost:8080/all')
     const json = await response.json()
     this.setState({cats: json})
+  }
+
+  setNewUserInfo = (id, email, password) => {
+      this.setState({user: id, newemail: email, newpassword: password})
   }
 
   matchCats = () => {
@@ -57,7 +63,7 @@ class App extends React.Component {
     <Route exact path="/" render={({ history }) => <Login history={history} setUser={this.setUser} cats={this.state.cats} />} />
     <Route path="/dashboard" render={({history}) => <Dashboard state={this.state} history={history}/>} />
     <Route path="/matches" render={({history}) => <Matches state={this.state} history={history}/>} />
-    <Route path="/create" state={this.state} component={Create} />
+    <Route path="/create" render={({history}) => <Create state={this.state} history={history} setNewUserInfo={this.setNewUserInfo} />} />
     <Route path="/edit" state={this.state} component={Edit} />
     <Route path="/profile/:id" render={({history, match}) => <Profile match={match} state={this.state} history={history}/>} />
     </Switch>

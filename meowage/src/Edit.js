@@ -4,9 +4,9 @@ import './App.css';
 function Edit({ history }) {
   return (
     <div className="Edit">
-      <img class="pic" src="jRFox.jpg" alt=""/>
-      <div class="placemat">
-      <div class="card">
+      <img className="pic" src="jRFox.jpg" alt=""/>
+      <div className="placemat">
+      <div className="card">
       <form>
       <img src="meowage.png" alt="logo"></img>
       <br></br>
