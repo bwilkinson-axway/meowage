@@ -61,7 +61,7 @@ $ As a user, I can view another user’s profile information and photo within th
 
 $ As a user, if I have not matched with this other user, I have the option to select match
 
-As a user, if I have already matched with this other user, I have the option to send the user a message.
+$ As a user, if I have already matched with this other user, I have the option to send the user a message.
 
 STRETCH: As a user, if I have already matched with this other user, and they are also online, I can start a live chat with that user.
 
