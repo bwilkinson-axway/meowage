@@ -11,8 +11,14 @@ class Edit extends React.Component {
   }
 
   async createCat() {
+    let id = "";
+    if (this.props.state.user !== "") {
+      id = this.props.state.user;
+    } else {
+      id = this.props.state.cats.length;
+    }
     let object = JSON.stringify({
-      id: this.props.state.cats.length,
+      id: id,
       email: this.props.state.newemail,
       username: this.state.username,
       password: this.props.state.newpassword,
@@ -33,6 +39,18 @@ class Edit extends React.Component {
     })
     const kitty = await catMaker.json()
     this.props.addState(kitty);
+  }
+
+  async deleteCat() {
+    await fetch('http://localhost:8080/byemeow', {
+      method: 'POST',
+      body: this.props.state.user,
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      }
+    })
+    console.log(this.props.state)
   }
 
   handleSubmitFinal = e => {
