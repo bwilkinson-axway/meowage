@@ -20,6 +20,10 @@ class App extends React.Component {
     newpassword: ''
   }
 
+  addState = (cat) => {
+    this.setState({cats: [...this.state.cats, cat]})
+  }
+
   async componentDidMount() {
     const response = await fetch('http://localhost:8080/all')
     const json = await response.json()
@@ -64,7 +68,7 @@ class App extends React.Component {
     <Route path="/dashboard" render={({history}) => <Dashboard state={this.state} history={history}/>} />
     <Route path="/matches" render={({history}) => <Matches state={this.state} history={history}/>} />
     <Route path="/create" render={({history}) => <Create state={this.state} history={history} setNewUserInfo={this.setNewUserInfo} />} />
-    <Route path="/edit" state={this.state} component={Edit} />
+    <Route path="/edit" render={({history}) => <Edit state={this.state} history={history} addState={this.addState} />} />
     <Route path="/profile/:id" render={({history, match}) => <Profile match={match} state={this.state} history={history}/>} />
     </Switch>
     </Router>
