@@ -41,9 +41,9 @@ $ As a user, I see an option to enter a link to a profile picture.
 
 Stretch: As a user, I see an option to upload a photo from my computer.
 
-As a user, I see an option to save my profile information to join the site (or update my information).
+$ As a user, I see an option to save my profile information to join the site (or update my information).
 
-As a user, I can delete my profile and account completely from this view.
+$ As a user, I can delete my profile and account completely from this view.
 
 	Dashboard View:
 	
