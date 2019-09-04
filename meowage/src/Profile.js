@@ -18,6 +18,7 @@ class Profile extends React.Component {
           <h5> Age: {this.props.state.cats[this.props.match.params.id].age} </h5>
           <h5> Favorite Toy: {this.props.state.cats[this.props.match.params.id].favorite_toy} </h5>
           <button onClick={() => this.handleClick()}><img id='matches' src={this.props.state.meow.includes(parseInt(this.props.match.params.id)) ? 'https://clipart.info/images/ccovers/1495818555cartoon-fire-flames-emoji-png-transparent.png' : "https://www.actaturcica.com/wp-content/uploads/2018/06/Match-Stick-PNG-Transparent-Image.png"} alt='matches'></img></button>
+          <h4> {this.props.state.meow.includes(parseInt(this.props.match.params.id)) ? "Email: " + this.props.state.cats[this.props.match.params.id].email : ""} </h4>
         </div>
       </div>
     );
