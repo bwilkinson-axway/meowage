@@ -20,6 +20,15 @@ class App extends React.Component {
     newpassword: ''
   }
 
+  addMatch = (id) => {
+    this.setState({ meow: [...this.state.meow, id]});
+  }
+
+  updateState = (cat) => {
+        this.setState({cats: this.state.cats.map(ogcat => ogcat.id === cat.id ? {cat} : {...ogcat})})
+    }
+
+
   addState = (cat) => {
     this.setState({cats: [...this.state.cats, cat]})
   }
@@ -52,8 +61,8 @@ class App extends React.Component {
     this.matchCats()
   }
 
-  setUser = (id) => {
-    this.setState({user: id})
+  setUser = (id, email, password) => {
+    this.setState({user: id, newemail: email, newpassword: password})
     this.setMatches()
   }
 
@@ -68,8 +77,8 @@ class App extends React.Component {
     <Route path="/dashboard" render={({history}) => <Dashboard state={this.state} history={history}/>} />
     <Route path="/matches" render={({history}) => <Matches state={this.state} history={history}/>} />
     <Route path="/create" render={({history}) => <Create state={this.state} history={history} setNewUserInfo={this.setNewUserInfo} />} />
-    <Route path="/edit" render={({history}) => <Edit state={this.state} history={history} addState={this.addState} />} />
-    <Route path="/profile/:id" render={({history, match}) => <Profile match={match} state={this.state} history={history}/>} />
+    <Route path="/edit" render={({history}) => <Edit state={this.state} history={history} addState={this.addState} updateState={this.updateState} />} />
+    <Route path="/profile/:id" render={({history, match}) => <Profile addMatch={this.addMatch} match={match} state={this.state} history={history}/>} />
     </Switch>
     </Router>
   )};

@@ -43,6 +43,12 @@ public class Controller {
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
+    @PatchMapping("/meow")
+    public Users updateCat (@RequestBody Users cat) {
+        return this.usersRepository.save(cat);
+    }
+
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping("/byemeow")
     public void deleteOneCat (@RequestBody long id) {
         this.usersRepository.deleteById(id);

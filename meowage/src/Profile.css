@@ -1,15 +1,17 @@
 html,
 body {
+  width: 100vw;
   background-color: gray;
 }
 .profile {
   display: flex;
   flex-direction: row;
   background-color: lightgray;
+  width: 100vw;
 }
 
 #pic {
-  width: 40vw;
+  height: 100vh;
   padding-left: 3vw;
   padding-right: 3vw;
   margin-left: 3vw;
@@ -23,6 +25,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-right: 5vw;
 }
 
 #matches {

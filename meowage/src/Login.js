@@ -32,7 +32,7 @@ class Login extends React.Component {
     console.log(this.props)
       for (let i = 0; i < this.props.cats.length; i++) {
         if (this.state.email === this.props.cats[i].email && this.state.password === this.props.cats[i].password) {
-          this.props.setUser(this.props.cats[i].id);
+          this.props.setUser(this.props.cats[i].id, this.props.cats[i].email, this.props.cats[i].password);
           auth = true;
           this.props.history.push('/dashboard');
         }
