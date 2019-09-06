@@ -8,6 +8,7 @@ import java.util.Set;
 public class Users {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private long id;
 
@@ -39,8 +40,7 @@ public class Users {
 
     }
 
-    public Users(long id, String email, String username, String password, String favorite_toy, int age, String bio, String photo, Boolean matched) {
-        this.id = id;
+    public Users(String email, String username, String password, String favorite_toy, int age, String bio, String photo) {
         this.email = email;
         this.username = username;
         this.password = password;
@@ -48,15 +48,6 @@ public class Users {
         this.age = age;
         this.bio = bio;
         this.photo = photo;
-        this.matched = matched;
-    }
-
-    public Boolean isMatched() {
-        return matched;
-    }
-
-    public void setMatched(Boolean matched) {
-        this.matched = matched;
     }
 
     public long getId() {
