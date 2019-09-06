@@ -47,19 +47,19 @@ public class Seed implements CommandLineRunner {
         Users fifteen = new Users("cat15@meowage.com", "Bender", "hi", "cardboard box", 4, "Give me a shot baby, and I'll rock your world", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpriVlrn_CyvIrT66TyoS39vLIxI9mskVWffT2XkVS0pUaCCoq");
         this.usersRepository.save(fifteen);
 
-        Matches match = new Matches(1, true, true, 0, 2);
+        Matches match = new Matches(1, true, true, 1, 2);
         this.matchesRepository.save(match);
-        Matches match2 = new Matches(2, true, false, 0, 4);
+        Matches match2 = new Matches(2, true, false, 1, 4);
         this.matchesRepository.save(match2);
-        Matches match3 = new Matches(3, true, true, 0, 6);
+        Matches match3 = new Matches(3, true, true, 1, 6);
         this.matchesRepository.save(match3);
-        Matches match4 = new Matches(4, true, true, 0, 8);
+        Matches match4 = new Matches(4, true, true, 1, 8);
         this.matchesRepository.save(match4);
-        Matches match5 = new Matches(5, true, false, 0, 10);
+        Matches match5 = new Matches(5, true, false, 1, 10);
         this.matchesRepository.save(match5);
-        Matches match6 = new Matches(6, true, true, 0, 13);
+        Matches match6 = new Matches(6, true, true, 1, 13);
         this.matchesRepository.save(match6);
-        Matches match7 = new Matches(7, true, true, 0, 15);
+        Matches match7 = new Matches(7, true, true, 1, 15);
         this.matchesRepository.save(match7);
     }
 }
