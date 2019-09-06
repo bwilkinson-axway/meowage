@@ -11,56 +11,51 @@ class Edit extends React.Component {
   }
 
   async createCat() {
-    let id = "";
+    let object = {};
     if (this.props.state.user !== "") {
-      id = this.props.state.user;
-      let objectUpdate = JSON.stringify({
-        id: id,
+      object = JSON.stringify({
+        id: this.props.state.user,
         email: this.props.state.newemail,
         username: this.state.username,
         password: this.props.state.newpassword,
         favorite_toy: this.state.toy,
         age: this.state.age,
         bio: this.state.bio,
-        photo: this.state.photo,
-        matched: false
+        photo: this.state.photo
       })
-      console.log(objectUpdate)
-      const catUpdater = await fetch('http://localhost:8080/meow', {
-        method: 'PATCH',
-        body: objectUpdate,
+      console.log(object)
+      const catMaker = await fetch('http://localhost:8080/meow', {
+        method: 'POST',
+        body: object,
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
         }
       })
-      const rekitty = await catUpdater.json()
-      this.props.updateState(rekitty);
+      const kitty = await catMaker.json()
+      this.props.updateState(kitty);
     } else {
-      id = this.props.state.cats.length;
-    let object = JSON.stringify({
-      id: id,
-      email: this.props.state.newemail,
-      username: this.state.username,
-      password: this.props.state.newpassword,
-      favorite_toy: this.state.toy,
-      age: this.state.age,
-      bio: this.state.bio,
-      photo: this.state.photo,
-      matched: false
-    })
-    console.log(object)
-    const catMaker = await fetch('http://localhost:8080/meow', {
-      method: 'POST',
-      body: object,
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      }
-    })
-    const kitty = await catMaker.json()
-    this.props.addState(kitty);
-  }
+      object = JSON.stringify({
+        email: this.props.state.newemail,
+        username: this.state.username,
+        password: this.props.state.newpassword,
+        favorite_toy: this.state.toy,
+        age: this.state.age,
+        bio: this.state.bio,
+        photo: this.state.photo
+      })
+      console.log(object)
+      const catMaker = await fetch('http://localhost:8080/meow', {
+        method: 'POST',
+        body: object,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        }
+      })
+      const kitty = await catMaker.json()
+      this.props.addState(kitty);
+    }
   }
 
   async deleteCat() {

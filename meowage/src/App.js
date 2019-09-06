@@ -11,14 +11,35 @@ import Profile from "./Profile.js";
 
 class App extends React.Component {
 
-  state = {
-    cats: [],
-    user: '',
-    matches: [],
-    meow: [],
-    newemail: '',
-    newpassword: ''
+  // state = {
+  //   cats: [],
+  //   user: '',
+  //   matches: [],
+  //   meow: [],
+  //   newemail: '',
+  //   newpassword: ''
+  // }
+
+  constructor(props) {
+  super(props);
+  this.state = {
+      cats: [],
+      user: '',
+      matches: [],
+      meow: [],
+      newemail: '',
+      newpassword: ''
+    }
+    this.getCatsAgain = this.getCatsAgain.bind(this)
+
+}
+
+  async getCatsAgain(){
+    const response = await fetch('http://localhost:8080/all')
+    const json = await response.json()
+    this.setState({cats: json}).bind(this)
   }
+
 
   addMatch = (id) => {
     this.setState({ meow: [...this.state.meow, id]});
@@ -74,7 +95,7 @@ class App extends React.Component {
     <Router history={BrowserHistory}>
     <Switch>
     <Route exact path="/" render={({ history }) => <Login history={history} setUser={this.setUser} cats={this.state.cats} />} />
-    <Route path="/dashboard" render={({history}) => <Dashboard state={this.state} history={history}/>} />
+    <Route path="/dashboard" render={({history}) => <Dashboard state={this.state} history={history} recat={this.getCatsAgain}/>} />
     <Route path="/matches" render={({history}) => <Matches state={this.state} history={history}/>} />
     <Route path="/create" render={({history}) => <Create state={this.state} history={history} setNewUserInfo={this.setNewUserInfo} />} />
     <Route path="/edit" render={({history}) => <Edit state={this.state} history={history} addState={this.addState} updateState={this.updateState} />} />

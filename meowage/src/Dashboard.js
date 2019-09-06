@@ -6,6 +6,10 @@ import CardMatch from './CardMatch.js'
 
 class Dashboard extends React.Component {
 
+  handleReload = () => {
+    this.props.recat()
+  }
+
   render() {
     return (
       <div className='dashboard'>
@@ -15,6 +19,7 @@ class Dashboard extends React.Component {
         <button onClick={() => this.props.history.push('/matches')}>See Matches</button>
         </div>
         <div className='meowmeows'>
+        <button disabled onClick={() => this.handleReload()}> Refresh </button>
         {this.props.state.cats.map(cat => {return Object.values(this.props.state.meow).includes(cat.id) ? <CardMatch key={cat.id} cat={cat} history={this.props.history} /> : <Card key={cat.id} cat={cat} history={this.props.history} />})}
         </div>
       </div>
