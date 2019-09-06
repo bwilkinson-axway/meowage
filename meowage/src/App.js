@@ -33,7 +33,7 @@ class App extends React.Component {
     this.getCatsAgain = this.getCatsAgain.bind(this)
 
 }
-
+// trying to implement refresh to avoid having to log in and out again
   async getCatsAgain(){
     const response = await fetch('http://localhost:8080/all')
     const json = await response.json()
