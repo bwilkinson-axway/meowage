@@ -36,7 +36,7 @@ class Create extends React.Component {
         window.alert('your passwords don\'t match right meow')
       } else {
         console.log('reacharound')
-        this.props.setNewUserInfo(this.props.state.cats.length, this.state.email, this.state.password)
+        this.props.setNewUserInfo((this.props.state.cats.length + 1), this.state.email, this.state.password)
         this.props.history.push('/edit')
       }
     }
